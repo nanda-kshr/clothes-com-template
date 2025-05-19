@@ -1,103 +1,216 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ShoppingBagIcon, HeartIcon } from "@heroicons/react/24/outline";
+
+const featuredProducts = [
+  {
+    id: 1,
+    name: "Classic White T-Shirt",
+    price: 29.99,
+    image: "/images/tshirt.jpg",
+    category: "Tops"
+  },
+  {
+    id: 2,
+    name: "Slim Fit Jeans",
+    price: 79.99,
+    image: "/images/jeans.jpg",
+    category: "Bottoms"
+  },
+  {
+    id: 3,
+    name: "Summer Dress",
+    price: 59.99,
+    image: "/images/dress.jpg",
+    category: "Dresses"
+  },
+  {
+    id: 4,
+    name: "Casual Jacket",
+    price: 129.99,
+    image: "/images/jacket.jpg",
+    category: "Outerwear"
+  }
+];
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main style={{ minHeight: '100vh' }}>
+      {/* Hero Section */}
+      <section style={{ 
+        position: 'relative',
+        height: '600px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'rgb(17 24 39)',
+        color: 'white'
+      }}>
+        <div style={{ 
+          position: 'absolute',
+          inset: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          zIndex: 10
+        }} />
+        <div style={{ 
+          position: 'relative',
+          zIndex: 20,
+          textAlign: 'center',
+          padding: '0 1rem'
+        }}>
+          <h1 style={{ 
+            fontSize: '3rem',
+            fontWeight: 'bold',
+            marginBottom: '1rem'
+          }}>
+            Summer Collection 2024
+          </h1>
+          <p style={{ 
+            fontSize: '1.25rem',
+            marginBottom: '2rem'
+          }}>
+            Discover the latest trends in fashion
+          </p>
+          <Link href="/shop" className="btn-primary" style={{ fontSize: '1.125rem', padding: '0.75rem 2rem' }}>
+            Shop Now
+          </Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      {/* Featured Products */}
+      <section style={{ 
+        padding: '4rem 1rem',
+        maxWidth: '80rem',
+        margin: '0 auto'
+      }}>
+        <h2 style={{ 
+          fontSize: '1.875rem',
+          fontWeight: 'bold',
+          textAlign: 'center',
+          marginBottom: '3rem'
+        }}>
+          Featured Products
+        </h2>
+        <div style={{ 
+          display: 'grid',
+          gridTemplateColumns: 'repeat(1, 1fr)',
+          gap: '2rem'
+        }}>
+          {featuredProducts.map((product) => (
+            <div key={product.id} style={{ position: 'relative' }}>
+              <div style={{ 
+                position: 'relative',
+                aspectRatio: '1',
+                overflow: 'hidden',
+                borderRadius: '0.5rem',
+                backgroundColor: 'rgb(243 244 246)',
+                marginBottom: '1rem'
+              }}>
+                <div style={{ 
+                  position: 'absolute',
+                  inset: 0,
+                  backgroundColor: 'rgba(0, 0, 0, 0.05)'
+                }} />
+                <button style={{ 
+                  position: 'absolute',
+                  top: '1rem',
+                  right: '1rem',
+                  padding: '0.5rem',
+                  borderRadius: '9999px',
+                  backgroundColor: 'rgba(255, 255, 255, 0.8)'
+                }}>
+                  <HeartIcon style={{ width: '1.25rem', height: '1.25rem' }} />
+                </button>
+                <button style={{ 
+                  position: 'absolute',
+                  bottom: '1rem',
+                  right: '1rem',
+                  padding: '0.5rem',
+                  borderRadius: '9999px',
+                  backgroundColor: 'rgba(255, 255, 255, 0.8)'
+                }}>
+                  <ShoppingBagIcon style={{ width: '1.25rem', height: '1.25rem' }} />
+                </button>
+              </div>
+              <h3 style={{ 
+                fontSize: '1.125rem',
+                fontWeight: '600'
+              }}>
+                {product.name}
+              </h3>
+              <p style={{ color: 'rgb(75 85 99)' }}>
+                {product.category}
+              </p>
+              <p style={{ 
+                fontSize: '1.125rem',
+                fontWeight: 'bold',
+                marginTop: '0.5rem'
+              }}>
+                ${product.price}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Categories Section */}
+      <section style={{ 
+        padding: '4rem 1rem',
+        backgroundColor: 'rgb(249 250 251)'
+      }}>
+        <div style={{ 
+          maxWidth: '80rem',
+          margin: '0 auto'
+        }}>
+          <h2 style={{ 
+            fontSize: '1.875rem',
+            fontWeight: 'bold',
+            textAlign: 'center',
+            marginBottom: '3rem'
+          }}>
+            Shop by Category
+          </h2>
+          <div style={{ 
+            display: 'grid',
+            gridTemplateColumns: 'repeat(1, 1fr)',
+            gap: '2rem'
+          }}>
+            {['Tops', 'Bottoms', 'Dresses'].map((category) => (
+              <Link
+                key={category}
+                href={`/category/${category.toLowerCase()}`}
+                style={{ 
+                  position: 'relative',
+                  height: '16rem',
+                  borderRadius: '0.5rem',
+                  overflow: 'hidden'
+                }}
+              >
+                <div style={{ 
+                  position: 'absolute',
+                  inset: 0,
+                  backgroundColor: 'rgba(0, 0, 0, 0.3)'
+                }} />
+                <div style={{ 
+                  position: 'absolute',
+                  inset: 0,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                  <h3 style={{ 
+                    fontSize: '1.5rem',
+                    fontWeight: 'bold',
+                    color: 'white'
+                  }}>
+                    {category}
+                  </h3>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }

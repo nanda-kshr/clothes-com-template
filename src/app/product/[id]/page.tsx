@@ -1,11 +1,12 @@
 import { ShoppingBagIcon, HeartIcon } from '@heroicons/react/24/outline'
+import React from 'react'
 
 const sizes = ['XS', 'S', 'M', 'L', 'XL']
 
-export default function ProductPage({ params }: { params: { id: string } }) {
+export default function ProductPage({ params }: { params: Promise<{ id: string }> }) {
   // Dummy product data
   const product = {
-    id: params.id,
+    id:  React.use(params),
     name: 'Classic White T-Shirt',
     price: 29.99,
     description: 'A timeless white t-shirt made from 100% organic cotton. Perfect for everyday wear, this essential piece features a comfortable fit and excellent durability.',
